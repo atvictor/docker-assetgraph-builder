@@ -1,8 +1,6 @@
 FROM debian:jessie
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  ca-certificates curl make g++ libcairo2-dev libgif-dev optipng pngcrush pngquant libpango1.0-dev graphicsmagick libjpeg-progs inkscape libvips-dev libgsf-1-dev\
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl make g++ libcairo2-dev libgif-dev optipng pngcrush pngquant libpango1.0-dev graphicsmagick libjpeg-progs inkscape libvips-dev libgsf-1-dev && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex && for key in 7937DFD2AB06298B2293C3187D33FF9D0246406D 114F43EE0176B71C7BC219DD50A3051F888C628D ; do gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; done
 
